@@ -7,36 +7,64 @@ let images = [
 ];
 
 let slogans = [
-  "SLOGAN",
-  "АСЯНЫ БОСАТ"
+"СПРАВЕД\nЛИВОСТЬ\nДЛЯ АСИ",
+"СВОБОДУ\nАСЕ",
+"СБИЛА ФУРАЖКУ\nВ ОТВЕТ\nНА НАСИЛИЕ",
+"ПРОТЕСТУЮ\nГДЕ ХОЧУ",
+"МНЕ НЕ НУЖНО\nРАЗРЕШЕНИЕ,\nЧТОБЫ ГОВОРИТЬ",
+"МИТИНГ\nЭТО\nПОЛЕЗНО",
+"ПОЛИЦИЯ,\nНЕ ЗАЛАМЫВАЙ\nНАМ РУКИ",
+"НАШИ НАЛОГИ –\nВАШИ ЗАРПЛАТЫ",
+"ПОЛИЦЕЙСКИЙ,\nЗАЩИЩАЙ НАРОД,\nА НЕ ВЛАСТЬ",
+"НЕ ЗАКРЫВАЙ\nГЛАЗА\n–\nНА КОНУ СВОБОДА",
+"МОЛЧАНИЕ\n=\nСОУЧАСТИЕ",
+"НЕ АКИМАТУ\nРЕШАТЬ, ЧТО МНЕ\nНА ПЛАКАТЕ\nПИСАТЬ"
 ];
+
 
 function preload() {
   helveticaBold = loadFont('HelveticaNeueBold.ttf');
 }
 
 function setup() {
+
   canvas = createCanvas(1080, 1080);
   canvas.hide();
-  document.getElementById('fileInput').addEventListener('change', handleFile);
 
+  document.getElementById('fileInput').addEventListener('change', handleFile);
   document.getElementById('download').addEventListener('click', download);
 
   function download() {
-    saveCanvas('corpe', 'png');
+    saveCanvas('korpe', 'png');
   }
 
   randomizeSlogan();
-
+  $($('.carousel-dots i')[slogans.indexOf(slogan)]).addClass('active');
   changeBackground(images[parseInt(Math.random() * images.length)]);
 
 }
 
-function randomizeSlogan() {
-  var otherSlogans = slogans.filter(function(a) {return a != slogan})
-  slogan = otherSlogans[parseInt(Math.random() * otherSlogans.length)];
-  return slogan;
-}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  $('.preview').click(changeSloganAndResetBackground);
+
+  $('.text-colors a').click(function changeColor() {
+    textColor = $(this).css('color');
+    $('.preview').css('color', textColor);
+    changeSloganAndResetBackground(slogan);
+  });
+
+  $('.clipboard').click(function() { navigator.clipboard.writeText("#СправедливостьДляАси #JusticeForAsya #ПолицияБезНасилия #МитингЭтоПолезно #ProtestKorpe") });
+
+  $('.backgrounds img').click(function() { changeBackground(this.src); });
+
+});
+
+
+
+// UTILITY FUNCTIONS
 
 function handleFile(e) {
   if (e.target.files.length > 0) {
@@ -52,6 +80,21 @@ function handleFile(e) {
   }
 }
 
+function randomizeSlogan() {
+  var otherSlogans = slogans.filter(function(a) {return a != slogan})
+  slogan = otherSlogans[parseInt(Math.random() * otherSlogans.length)];
+  return slogan;
+}
+
+function nextSlogan() {
+  var idx = slogans.indexOf(slogan) + 1;
+  if (idx > slogans.length - 1) idx = 0;
+  slogan = slogans[idx];
+  $('.carousel-dots i').removeClass('active');
+  $($('.carousel-dots i')[idx]).addClass('active');
+  return slogan;
+}
+
 function changeSlogan(t) {
   $('.preview').html(t);
 
@@ -65,7 +108,7 @@ function changeSlogan(t) {
 }
 
 function changeSloganAndResetBackground(t) {
-  t = typeof t === 'string' ? t : randomizeSlogan();
+  t = typeof t === 'string' ? t : nextSlogan();
   slogan = t;
   changeBackground(backgroundSrc); // keep same bg
 }
@@ -80,19 +123,3 @@ function changeBackground(src) {
     changeSlogan(slogan)
   });      
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-
-  $('.preview').click(changeSloganAndResetBackground);
-
-  $('.text-colors a').click(function changeColor() {
-    textColor = $(this).css('color');
-    $('.preview').css('color', textColor);
-    changeSloganAndResetBackground(slogan);
-  });
-
-  $('.clipboard').click(function() { navigator.clipboard.writeText("#СправедливостьДляАси") });
-
-  $('.backgrounds img').click(function() { changeBackground(this.src); });
-
-});

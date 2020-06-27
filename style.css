@@ -67,24 +67,6 @@ body {
   font-weight: bold;
   padding: 6vw;
   color: yellow;
-
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-     -moz-animation: fadein 2s; /* Firefox < 16 */
-      -ms-animation: fadein 2s; /* Internet Explorer */
-       -o-animation: fadein 2s; /* Opera < 12.1 */
-          animation: fadein 2s;
-  animation-duration: 2s;
-  animation-name: slidein;
-}
-
-@keyframes slidein {
-  from {
-    padding-left: 30%;
-  }
-
-  to {
-    padding-left: 10px;
-  }
 }
 
 .carousel-dots {
