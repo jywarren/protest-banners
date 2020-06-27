@@ -29,12 +29,21 @@ p.lead {
   width: 50px;
   height: 50px;
   text-align: center;
-  line-height: 1.4;
+  line-height: 1.65;
   color: #444;
 }
+.backgrounds a:hover,
+.text-colors a:hover {
+  opacity: 0.8;
+}
 
-.change-slogan-container {
+.slogan {
   position: absolute;
+  left: 0;
+  font-size: 2.5em;
+  width: 100%;
+  padding-top: 155px;
+  color: yellow;
 }
 
 .change-slogan {
@@ -59,6 +68,13 @@ p.lead {
 }
 .change-slogan a.right {
   right: 10px;
+}
+
+.carousel-dots {
+  font-size: 8px;
+}
+.carousel-dots .active {
+  color: #aaa;
 }
 
 .text-colors a {
