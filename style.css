@@ -1,16 +1,9 @@
 body {
-  padding-top: 20%;
+  padding: 20% 0 100px;
 }
 
-h1 {
-  font-size: 4em;
-  line-height: 0.7;
-}
-h1 small {
-  font-size: 40%;
-}
-
-p.lead {
+.title {
+  width: 100%;
 }
 
 .backgrounds,
@@ -103,3 +96,6 @@ p.lead {
   left: 0;
 }
 
+.clipboard {
+  border: 1px solid #ccc;
+}
