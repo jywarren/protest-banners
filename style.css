@@ -42,13 +42,28 @@ p.lead {
   left: 0;
   font-size: 2.5em;
   width: 100%;
-  padding-top: 155px;
+  padding-top: 40vw;
   color: yellow;
+}
+
+.preview .slogan {
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    left: 20%;
+  }
+
+  to {
+    left: 0;
+  }
 }
 
 .change-slogan {
   position: relative;
-  top: 160px;
+  top: 50vw;
 }
 
 .change-slogan a {
@@ -84,6 +99,7 @@ p.lead {
 
 .preview img {
   width: 100%;
+  transition: 1s;
+  left: 0;
 }
-
 
