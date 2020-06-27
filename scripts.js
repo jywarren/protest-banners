@@ -1,4 +1,15 @@
-let img, canvas, textColor = "yellow";
+let img, canvas, textColor = "yellow", slogan, backgroundSrc;
+
+let images = [
+  "patterns/3.png",
+  "patterns/2.png",
+  "patterns/1.png"
+];
+
+let slogans = [
+  "SLOGAN",
+  "АСЯНЫ БОСАТ"
+];
 
 function preload() {
   helveticaBold = loadFont('HelveticaNeueBold.ttf');
@@ -15,26 +26,16 @@ function setup() {
     saveCanvas('corpe', 'png');
   }
 
-  let images = [
-    "patterns/3.png",
-    "patterns/2.png",
-    "patterns/1.png"
-  ];
+  randomizeSlogan();
 
-  let slogans = [
-    "SLOGAN",
-    "АСЯНЫ БОСАТ"
-  ];
-
-  changeBackground(
-    images[parseInt(Math.random() * images.length)],
-    function afterBg() {
-      changeSlogan(slogans[parseInt(Math.random() * slogans.length)]);
-    });
+  changeBackground(images[parseInt(Math.random() * images.length)]);
 
 }
 
-function draw() {
+function randomizeSlogan() {
+  var otherSlogans = slogans.filter(function(a) {return a != slogan})
+  slogan = otherSlogans[parseInt(Math.random() * otherSlogans.length)];
+  return slogan;
 }
 
 function handleFile(e) {
@@ -55,45 +56,42 @@ function changeSlogan(t) {
   $('.preview').html(t);
 
   setTimeout(function() {
-  textSize(108); // 1080 * 10%
-  textFont(helveticaBold);
-  fill(textColor);
-  textAlign(CENTER, CENTER);
-  text(t, width/2, height/2);
+    textSize(108); // 1080 * 10%
+    textFont(helveticaBold);
+    fill(textColor);
+    textAlign(CENTER, CENTER);
+    text(t, width/2, height/2);
   },0);
 }
 
-function changeBackground(src, callback) {
+function changeSloganAndResetBackground(t) {
+  t = typeof t === 'string' ? t : randomizeSlogan();
+  slogan = t;
+  changeBackground(backgroundSrc); // keep same bg
+}
+
+function changeBackground(src) {
+  backgroundSrc = src;
   $('.preview').css('background-image', 'url(' + src + ')')
                .css('opacity', 1);
   img = loadImage(src, function(i) {
     image(i, 0, 0, width, height);
     $('.preview').height($('.preview').width());
-    callback();
+    changeSlogan(slogan)
   });      
 }
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  $('.slogan').dblclick(replaceSlogan);
+  $('.preview').click(changeSloganAndResetBackground);
 
   $('.text-colors a').click(function changeColor() {
     textColor = $(this).css('color');
     $('.preview').css('color', textColor);
+    changeSloganAndResetBackground(slogan);
   });
 
   $('.clipboard').click(function() { navigator.clipboard.writeText("#СправедливостьДляАси") });
-
-  var timeoutId = 0;
-  $('.slogan').on('mousedown', function() {
-    timeoutId = setTimeout(replaceSlogan, 1000);
-  }).on('mouseup mouseleave', function() {
-    clearTimeout(timeoutId);
-  });
-
-  function replaceSlogan() {
-    $('.slogan').html(prompt('Enter text'));
-  }
 
   $('.backgrounds img').click(function() { changeBackground(this.src); });
 
