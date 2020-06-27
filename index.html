@@ -18,6 +18,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/dc7cacbbef.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+
+    <script src="scripts.js"></script>
+
     <link href="style.css" rel="stylesheet">
 
   </head>
@@ -47,13 +51,15 @@
 
         <h3 class="backgrounds py-3">
           <div class="scroll">
-            <a class="float-left mr-2" href=""><i class="fa fa-camera"></i></a>
-            <a href=""><img src="patterns/1.png" /></a>
-            <a href=""><img src="patterns/2.png" /></a>
-            <a href=""><img src="patterns/3.png" /></a>
-            <a href=""><img src="patterns/1.png" /></a>
-            <a href=""><img src="patterns/2.png" /></a>
-            <a href=""><img src="patterns/3.png" /></a>
+            <label class="float-left mr-2 upload">
+              <i class="fa fa-camera"></i> <input id="fileInput" type="file" style="display: none;">
+            </label>
+            <a href="javascript:void(0);"><img src="patterns/1.png" /></a>
+            <a href="javascript:void(0);"><img src="patterns/2.png" /></a>
+            <a href="javascript:void(0);"><img src="patterns/3.png" /></a>
+            <a href="javascript:void(0);"><img src="patterns/1.png" /></a>
+            <a href="javascript:void(0);"><img src="patterns/2.png" /></a>
+            <a href="javascript:void(0);"><img src="patterns/3.png" /></a>
           </div>
         </h3>
 
@@ -107,6 +113,5 @@
 
       </div>
     </main>
-    <script src="scripts.js"></script>
   </body>
 </html>

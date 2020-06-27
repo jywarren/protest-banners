@@ -19,6 +19,8 @@ body {
 
 .lang a,
 .backgrounds a,
+.backgrounds img,
+.backgrounds label,
 .text-colors a {
   display: inline-block;
   overflow: hidden;
@@ -53,6 +55,10 @@ body {
   width: 100%;
   padding-top: 40vw;
   color: yellow;
+}
+
+.preview {
+  overflow: hidden;
 }
 
 .preview .slogan {
