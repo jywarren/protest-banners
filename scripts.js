@@ -1,4 +1,9 @@
-let img, canvas, textColor = "yellow", slogan, backgroundSrc;
+let img, 
+  canvas, 
+  textColor = "yellow", 
+  slogan, 
+  backgroundSrc,
+  fontScale = 0.08;
 
 let images = [
   "patterns/3.png",
@@ -23,13 +28,18 @@ let slogans = [
 
 
 function preload() {
-  helveticaBold = loadFont('HelveticaNeueBold.ttf');
+  helveticaBold = loadFont('HelveticaNeue-Bold-Wobbly.ttf');
 }
 
 function setup() {
 
   canvas = createCanvas(1080, 1080);
   canvas.hide();
+  //$('.preview').hide();
+  $('.preview').css('font-size', (fontScale * 100) + 'vw');
+  canvas.style('width', '100%');
+  canvas.style('height', $('#canvas').width() + 'px');
+  canvas.parent('canvas');
 
   document.getElementById('fileInput').addEventListener('change', handleFile);
   document.getElementById('download').addEventListener('click', download);
@@ -48,7 +58,7 @@ function setup() {
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  $('.preview').click(changeSloganAndResetBackground);
+  $('.preview, #canvas').click(changeSloganAndResetBackground);
 
   $('.text-colors a').click(function changeColor() {
     textColor = $(this).css('color');
@@ -96,10 +106,10 @@ function nextSlogan() {
 }
 
 function changeSlogan(t) {
-  $('.preview').html(t);
+  $('.preview').html(t.replace(/\n/g, '<br />'));
 
   setTimeout(function() {
-    textSize(108); // 1080 * 10%
+    textSize(1080 * fontScale);
     textFont(helveticaBold);
     fill(textColor);
     textAlign(CENTER, CENTER);
