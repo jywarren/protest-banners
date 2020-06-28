@@ -87,17 +87,24 @@ function handleFile(e) {
       if (file.type === 'image' || file.type.split('/')[0] === 'image') {
 
         var img = createImg(file.data, 'your uploaded pattern');
+
         img.hide();
 
         // build a canvas and try to use glfx to halftone it
         loadImage(img.elt.src, function(i) {
+
+          // try to crop a square
+          var squareImg = i.get(0, (img.height - img.width)/2, img.width, img.width)
+          i.resize(img.width, img.width)
+          i.copy(squareImg, 0, 0, img.width, img.width, 0, 0, img.width, img.width)
+
           var fxcanvas = fx.canvas(1024, 1024);
           var texture = fxcanvas.texture(i.canvas);
           fxcanvas.draw(texture)
                   .denoise(80)
-                  .brightnessContrast(0.15, 0.09)
-                  .vibrance(0.5)
-                  .colorHalftone(320, 239.5, 0.31, 3)
+                  .brightnessContrast(0.1, 0.09)
+                  .vibrance(0.4)
+                  .colorHalftone(320, 239.5, 0.31, 2.3)
                   .update();
           changeBackground(canvasToBlobUrl(fxcanvas));
         });
@@ -158,7 +165,13 @@ function changeBackground(src) {
   backgroundSrc = src;
   $('.preview').css('background-image', 'url(' + src + ')')
                .css('opacity', 1);
-  img = loadImage(src, function(i) {
+  var img = loadImage(src, function(i) {
+
+    // try to crop a square
+    var squareImg = i.get(0, (i.height - i.width)/2, i.width, i.width)
+    i.resize(i.width, i.width)
+    i.copy(squareImg, 0, 0, i.width, i.width, 0, 0, i.width, i.width)
+
     image(i, 0, 0, width, height);
     $('.preview').height($('.preview').width());
     changeSlogan(slogan)
