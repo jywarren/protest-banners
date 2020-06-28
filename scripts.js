@@ -3,7 +3,7 @@ let img,
   textColor = "yellow", 
   slogan, 
   backgroundSrc,
-  fontScale = 0.09;
+  fontScale = 0.10;
 
 let images = [
 //  "patterns/3.png",
