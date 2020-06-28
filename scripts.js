@@ -3,12 +3,23 @@ let img,
   textColor = "yellow", 
   slogan, 
   backgroundSrc,
-  fontScale = 0.08;
+  fontScale = 0.09;
 
 let images = [
-  "patterns/3.png",
-  "patterns/2.png",
-  "patterns/1.png"
+//  "patterns/3.png",
+//  "patterns/2.png",
+//  "patterns/1.png"
+    "riso/K2d.jpg",
+    "riso/K3.png",
+    "riso/K4.png",
+    "riso/K5.png",
+    "riso/K6b.png"
+/*
+    "riso/K1.jpg",
+    "riso/K1b.jpg",
+    "riso/K1c.jpg",
+    "riso/K1d.jpg",
+*/
 ];
 
 let slogans = [
@@ -34,8 +45,8 @@ function preload() {
 function setup() {
 
   canvas = createCanvas(1080, 1080);
-  canvas.hide();
-  //$('.preview').hide();
+  //canvas.hide();
+  $('.preview').hide();
   $('.preview').css('font-size', (fontScale * 100) + 'vw');
   canvas.style('width', '100%');
   canvas.style('height', $('#canvas').width() + 'px');
@@ -113,7 +124,16 @@ function changeSlogan(t) {
     textFont(helveticaBold);
     fill(textColor);
     textAlign(CENTER, CENTER);
+
+    canvas.drawingContext.globalAlpha = 0.7;
     text(t, width/2, height/2);
+    canvas.drawingContext.globalAlpha = 1;
+
+//    blendMode(SOFT_LIGHT);
+//    blendMode(OVERLAY);
+    blendMode(SCREEN);
+    text(t, width/2, height/2);
+    blendMode(BLEND);
   },0);
 }
 
