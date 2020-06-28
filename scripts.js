@@ -6,17 +6,42 @@ let img,
   fontScale = 0.09;
 
 let images = [
-//  "patterns/3.png",
-//  "patterns/2.png",
-//  "patterns/1.png"
-    "patterns/K2d.jpg",
-    "patterns/K3.png",
-    "patterns/K4.png",
-    "patterns/K5.png",
-    "patterns/K6b.png"
+  "/patterns/k1.jpg",
+  "/patterns/k2.jpg",
+  "/patterns/k3.jpg",
+  "/patterns/k4.jpg",
+  "/patterns/k5.jpg",
+  "/patterns/k6.jpg",
+  "/patterns/k7.jpg",
+  "/patterns/k8.jpg",
+  "/patterns/k9.jpg",
+  "/patterns/k10.jpg",
+  "/patterns/k11.jpg",
+  "/patterns/k12.jpg",
+  "/patterns/k13.jpg",
+  "/patterns/k14.jpg",
+  "/patterns/k15.jpg",
+  "/patterns/k16.jpg",
+  "/patterns/k17.jpg"
 ];
 
-let slogans = [
+let slogans = {
+"en": [
+"JUSTICE\nFOR ASYA",
+"FREE\nASYA",
+"SHE ACTED\nAGAINST\nPOLICE\nVIOLENCE",
+"I PROTEST\nWHERE I WISH",
+"I NEED NO\nPERMISSION\nTO SPEAK",
+"PROTEST\nIS\nHEALTHY",
+"GET YOUR\nKNEES\nOFF\nOUR\nNECKS",
+"OUR TAXES – \nYOUR WAGES",
+"POLICE,\nPROTECT\nTHE PEOPLE,\nNOT\nTHE STATE",
+"LOOK OUT:\nFREEDOM\nAT STAKE",
+"SILENCE\n=\nCOMPLICITY",
+"MY BANNER\nNEEDS\nNO APPROVAL"
+],
+
+"ru": [
 "СПРАВЕД\nЛИВОСТЬ\nДЛЯ АСИ",
 "СВОБОДУ\nАСЕ",
 "СБИЛА ФУРАЖКУ\nВ ОТВЕТ\nНА НАСИЛИЕ",
@@ -29,14 +54,44 @@ let slogans = [
 "НЕ ЗАКРЫВАЙ\nГЛАЗА\n–\nНА КОНУ СВОБОДА",
 "МОЛЧАНИЕ\n=\nСОУЧАСТИЕ",
 "НЕ АКИМАТУ\nРЕШАТЬ, ЧТО МНЕ\nНА ПЛАКАТЕ\nПИСАТЬ"
-];
+],
+
+"kz": [
+"АСЯҒА\nӘДІЛДІК",
+"АСЯНЫ\nБОСАТ",
+"БАС КИІМ\nТҮСІРГЕНІ –\nЗОРЛЫҚ-\nЗОМБЫЛЫҚҚА\nЖАУАП",
+"МИТИНГ\nОРНЫН\nӨЗІМ\nТАҢДАЙМЫН",
+"СӨЙЛЕУ\nҮШІН РҰҚСАТ\nҚАЖЕТ ЕМЕС",
+"МИТИНГ–\nПАЙДАЛЫ",
+"ПОЛИЦИЯ,\nҚОЛЫМДЫЗДЫ\nҚАЙЫРМА",
+"БІЗ ТӨЛЕГЕН\nСАЛЫҚ –\nСІЗГЕ ЖАЛАҚЫ",
+"ПОЛИЦИЯ,\nБИЛІКТІ ЕМЕС,\nХАЛЫҚТЫ\nҚОРҒА",
+"КӨЗІҢДІ АШ –\nБҰЛ\nБОСТАНДЫҚ\nМӘСЕЛЕСІ",
+"ҮНСІЗ БОЛУ\n=\nҚАТЫСУ",
+"ПЛАКАТ\nЖАЗУ –\nӨЗ ЕРКІМ"
+]};
 
 
 function preload() {
-  helveticaBold = loadFont('HelveticaNeue-Bold-Wobbly.ttf');
+  helveticaBold = loadFont('/HelveticaNeue-Bold-Wobbly.ttf');
 }
 
+let lang = "ru";
+if (document.URL.search('/en/') !== -1) lang = "en";
+if (document.URL.search('/kz/') !== -1) lang = "kz";
+slogans = slogans[lang];
+
 function setup() {
+
+  images = images.sort(function() {
+    return .5 - Math.random();
+  });
+
+  images.forEach(function(src) {
+    $('.backgrounds .scroll').append('<a href="javascript:void(0);"><img src="' + src + '" /></a> ');
+  });
+
+  $('.backgrounds img').click(function() { changeBackground(this.src); });
 
   canvas = createCanvas(1080, 1080);
   //canvas.hide();
@@ -66,12 +121,6 @@ function setup() {
   $($('.carousel-dots i')[slogans.indexOf(slogan)]).addClass('active');
   changeBackground(images[parseInt(Math.random() * images.length)]);
 
-}
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-
   $('.preview, #canvas').click(changeSloganAndResetBackground);
 
   $('.text-colors a').click(function changeColor() {
@@ -82,9 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   $('.clipboard').click(function() { navigator.clipboard.writeText("#СправедливостьДляАси #JusticeForAsya #ПолицияБезНасилия #МитингЭтоПолезно #ProtestKorpe") });
 
-  $('.backgrounds img').click(function() { changeBackground(this.src); });
-
-});
+}
 
 
 
