@@ -53,7 +53,7 @@ function setup() {
     // display Safari download hint
     if (navigator.userAgent.search("Safari") >= 0) {
       $('.saved').show();
-      setTimeout(function() { $('.saved').hide() }, 10000);
+      setTimeout(function() { $('.saved').hide() }, 15000);
     }
     saveCanvas('korpe', 'png');
   }
