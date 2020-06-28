@@ -95,6 +95,8 @@ function handleFile(e) {
           var texture = fxcanvas.texture(i.canvas);
           fxcanvas.draw(texture)
                   .denoise(80)
+                  .brightnessContrast(0.15, 0.09)
+                  .vibrance(0.5)
                   .colorHalftone(320, 239.5, 0.31, 3)
                   .update();
           changeBackground(canvasToBlobUrl(fxcanvas));
