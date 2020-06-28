@@ -95,7 +95,7 @@ function handleFile(e) {
           var texture = fxcanvas.texture(i.canvas);
           fxcanvas.draw(texture)
                   .denoise(80)
-                  .colorHalftone(320, 239.5, 0.31, 1.7)
+                  .colorHalftone(320, 239.5, 0.31, 3)
                   .update();
           changeBackground(canvasToBlobUrl(fxcanvas));
         });
