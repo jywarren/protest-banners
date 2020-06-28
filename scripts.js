@@ -50,6 +50,11 @@ function setup() {
   document.getElementById('download').addEventListener('click', download);
 
   function download() {
+    // display Safari download hint
+    if (navigator.userAgent.search("Safari") >= 0) {
+      $('.saved').show();
+      setTimeout(function() { $('.saved').hide() }, 10000);
+    }
     saveCanvas('korpe', 'png');
   }
 
