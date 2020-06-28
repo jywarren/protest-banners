@@ -9,17 +9,11 @@ let images = [
 //  "patterns/3.png",
 //  "patterns/2.png",
 //  "patterns/1.png"
-    "riso/K2d.jpg",
-    "riso/K3.png",
-    "riso/K4.png",
-    "riso/K5.png",
-    "riso/K6b.png"
-/*
-    "riso/K1.jpg",
-    "riso/K1b.jpg",
-    "riso/K1c.jpg",
-    "riso/K1d.jpg",
-*/
+    "patterns/K2d.jpg",
+    "patterns/K3.png",
+    "patterns/K4.png",
+    "patterns/K5.png",
+    "patterns/K6b.png"
 ];
 
 let slogans = [
