@@ -1,11 +1,15 @@
 body {
-  padding: 20% 0 100px;
+  padding: 10% 0 100px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 @font-face {
   font-family: 'Helvetica Neue Bold Wobbly'; /*a name to be used later*/
   src: url('HelveticaNeue-Bold-Wobbly.ttf'); /*URL to font*/
+}
+
+main > .container {
+  max-width: 650px;
 }
 
 .title {

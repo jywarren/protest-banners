@@ -3,7 +3,7 @@ let img,
   textColor = "yellow", 
   slogan, 
   backgroundSrc,
-  fontScale = 0.10;
+  fontScale = 0.09;
 
 let images = [
 //  "patterns/3.png",
@@ -51,11 +51,15 @@ function setup() {
 
   function download() {
     // display Safari download hint
-    if (navigator.userAgent.search("Safari") >= 0) {
+    var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+                   navigator.userAgent &&
+                   navigator.userAgent.indexOf('CriOS') == -1 &&
+                   navigator.userAgent.indexOf('FxiOS') == -1;
+    if (isSafari) {
       $('.saved').show();
       setTimeout(function() { $('.saved').hide() }, 15000);
     }
-    saveCanvas('korpe', 'png');
+    saveCanvas('korpe', 'jpg');
   }
 
   randomizeSlogan();
