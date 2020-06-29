@@ -71,11 +71,6 @@ let slogans = {
 "ПЛАКАТ\nЖАЗУ –\nӨЗ ЕРКІМ"
 ]};
 
-
-function preload() {
-  helveticaBold = loadFont('/HelveticaNeue-Bold-Wobbly.ttf');
-}
-
 let lang = "ru";
 if (document.URL.search('/en/') !== -1) {
   lang = "en";
@@ -83,6 +78,10 @@ if (document.URL.search('/en/') !== -1) {
   lang = "kz";
 }
 slogans = slogans[lang];
+
+function preload() {
+  helveticaBold = loadFont('/HelveticaNeue-Bold-Wobbly.ttf');
+}
 
 function setup() {
 
