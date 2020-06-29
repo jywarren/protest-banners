@@ -6,23 +6,23 @@ let img,
   fontScale = 0.09;
 
 let images = [
-  "/patterns/k1.jpg",
-  "/patterns/k2.jpg",
-  "/patterns/k3.jpg",
-  "/patterns/k4.jpg",
-  "/patterns/k5.jpg",
-  "/patterns/k6.jpg",
-  "/patterns/k7.jpg",
-  "/patterns/k8.jpg",
-  "/patterns/k9.jpg",
-  "/patterns/k10.jpg",
-  "/patterns/k11.jpg",
-  "/patterns/k12.jpg",
-  "/patterns/k13.jpg",
-  "/patterns/k14.jpg",
-  "/patterns/k15.jpg",
-  "/patterns/k16.jpg",
-  "/patterns/k17.jpg"
+  "/patterns/k1",
+  "/patterns/k2",
+  "/patterns/k3",
+  "/patterns/k4",
+  "/patterns/k5",
+  "/patterns/k6",
+  "/patterns/k7",
+  "/patterns/k8",
+  "/patterns/k9",
+  "/patterns/k10",
+  "/patterns/k11",
+  "/patterns/k12",
+  "/patterns/k13",
+  "/patterns/k14",
+  "/patterns/k15",
+  "/patterns/k16",
+  "/patterns/k17"
 ];
 
 let slogans = {
@@ -77,18 +77,23 @@ function preload() {
 }
 
 let lang = "ru";
-if (document.URL.search('/en/') !== -1) lang = "en";
-if (document.URL.search('/kz/') !== -1) lang = "kz";
+if (document.URL.search('/en/') !== -1) {
+  lang = "en";
+} else if (document.URL.search('/kz/') !== -1) {
+  lang = "kz";
+}
 slogans = slogans[lang];
 
 function setup() {
+
+  $('.lang').find('.'+lang).addClass('active');
 
   images = images.sort(function() {
     return .5 - Math.random();
   });
 
   images.forEach(function(src) {
-    $('.backgrounds .scroll').append('<a href="javascript:void(0);"><img src="' + src + '" /></a> ');
+    $('.backgrounds .scroll').append('<a href="javascript:void(0);"><img src="' + src + 's.jpg" /></a> ');
   });
 
   $('.backgrounds img').click(function() { changeBackground(this.src); });
