@@ -96,7 +96,9 @@ function setup() {
     $('.backgrounds .scroll').append('<a href="javascript:void(0);"><img src="' + src + 's.jpg" /></a> ');
   });
 
-  $('.backgrounds img').click(function() { changeBackground(this.src); });
+  $('.backgrounds img').click(
+    function() { changeBackground(this.src.replace('s.jpg','.jpg'));
+  });
 
   canvas = createCanvas(1080, 1080);
   //canvas.hide();
@@ -124,7 +126,7 @@ function setup() {
 
   randomizeSlogan();
   $($('.carousel-dots i')[slogans.indexOf(slogan)]).addClass('active');
-  changeBackground(images[parseInt(Math.random() * images.length)]);
+  changeBackground(images[parseInt(Math.random() * images.length)] + '.jpg');
 
   $('.preview, #canvas').click(changeSloganAndResetBackground);
 
