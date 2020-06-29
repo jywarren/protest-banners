@@ -16,6 +16,10 @@ main > .container {
   width: 100%;
 }
 
+loadingdiv {
+  display: none;
+}
+
 .backgrounds,
 .lang,
 .text-colors {

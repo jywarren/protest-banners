@@ -124,6 +124,7 @@ function setup() {
   }
 
   randomizeSlogan();
+
   $($('.carousel-dots i')[slogans.indexOf(slogan)]).addClass('active');
   changeBackground(images[parseInt(Math.random() * images.length)] + '.jpg');
 

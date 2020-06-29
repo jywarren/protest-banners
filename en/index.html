@@ -22,7 +22,6 @@
     <script src="https://jywarren.github.io/webgl-distort/bower_components/glfx-js/dist/glfx.js"></script>
     <script src="/scripts.js"></script>
     <link href="/style.css" rel="stylesheet">
-
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -34,7 +33,7 @@
     <main role="main" class="flex-shrink-0">
       <div class="container">
 
-        <img class="title p-3 mb-5" alt="PROTEST KÓRPE" src="/images/title.png" />
+        <img class="title p-3 mb-4" alt="PROTEST KÓRPE" src="/images/title.png" />
 
         <h5 class="lang p-3 mb-4">
           <a class="kz" href="/kz/">Кз</a>
@@ -54,7 +53,7 @@
 
         <hr />
 
-        <h3 class="p-3 text-center">1. Customize your protest körpe:</h3>
+        <h3 class="p-3">1. Customize your protest körpe:</h3>
 
         <h3 class="backgrounds py-3">
           <div class="scroll mx-auto">
@@ -64,10 +63,12 @@
           </div>
         </h3>
 
+        <p style="color:grey;" class="mt-0 mb-2 px-3 text-center"><small><i class="fa fa-hand-pointer-o fa-rotate-180"></i> Click image for different slogans</small></p>
+
         <div id="canvas"></div>
         <div class="preview text-center"></div>
 
-        <p class="carousel-dots pt-3 text-center">
+        <p class="carousel-dots pt-2 text-center">
           <i class="fa fa-circle"></i>
           <i class="fa fa-circle"></i>
           <i class="fa fa-circle"></i>
@@ -82,33 +83,35 @@
           <i class="fa fa-circle"></i>
         </p>
 
-        <p style="color:grey;" class="mt-0 mb-2 pl-3 pr-3 text-center"><small><i class="fa fa-hand-pointer-o"></i> Click image for different slogans</small></p>
-
         <h3 class="text-colors p-3">
-          <a style="color:#ff4400;">Aa</a>
-          <a style="color:white;background:#ccc;">Aa</a>
-          <a style="color:#4488ff;">Aa</a>
-          <a style="color:#ffff00;background:#ccc;">Aa</a>
+          <div class="scroll mx-auto">
+            <a style="color:#ff4400;">Aa</a>
+            <a style="color:#ffff00;background:#aaa;">Aa</a>
+            <a style="color:#ffffff;background:#ccc;">Aa</a>
+            <a style="color:#00ff00;">Aa</a>
+            <a style="color:#00ffff;">Aa</a>
+            <a style="color:#000000;">Aa</a>
+          </div>
         </h3>
 
         <h2 class="px-3 pt-3 text-center">
           <a id="download" class="btn btn-outline-secondary btn-lg">Save image &nbsp; <i class="fa fa-download"></i></a>
         </h2>
-        <p class="px-3 text-center"><small>On some iPhones, press and hold the image to save.</small></p>
+        <p style="color:grey;" class="px-3 text-center"><small>On some iPhones, press and hold the image to save.</small></p>
 
-        <h3 class="px-3 pt-3 text-center">2. Share your körpe to join the protest:</h3>
+        <h3 class="px-3 pt-3">2. Share your körpe to join the protest:</h3>
 
-        <p class="px-3 pt-3 text-center">Upload it to your Instagram feed with these hashtags:</p>
+        <p class="px-3 pt-3">Upload it to your Instagram feed with these hashtags:</p>
 
-        <h5 class="px-3 text-center">
-          <span class="badge badge-pill badge-primary">#СправедливостьДляАси</span>
-          <span class="badge badge-pill badge-secondary">#JusticeForAsya</span>
-          <span class="badge badge-pill badge-secondary">#ПолицияБезНасилия</span>
-          <span class="badge badge-pill badge-secondary">#МитингЭтоПолезно</span>
-          <span class="badge badge-pill badge-secondary">#ProtestKorpe</span>
-        </h5>
+        <p class="px-3">
+          <b>#СправедливостьДляАси</b>
+          <span>#JusticeForAsya</span>
+          <span>#ПолицияБезНасилия</span>
+          <span>#МитингЭтоПолезно</span>
+          <span>#ProtestKorpe</span>
+        </p>
 
-        <p class="px-3 mt-3 text-center">
+        <p class="px-3 mt-3">
           <a class="btn btn-sm btn-outline-secondary clipboard"><i class="fa fa-clipboard"></i> copy all hashtags</a>
         </p>
  
@@ -128,6 +131,8 @@
         <h5 class="mt-5 px-3 text-center">Resources</h5>
 
 -->
+
+        <p style="display:none;" id="p5_loading"></p>
 
       </div>
     </main>
