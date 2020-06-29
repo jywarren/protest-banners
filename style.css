@@ -17,6 +17,7 @@ main > .container {
 }
 
 .backgrounds,
+.lang,
 .text-colors {
   text-align: center;
   margin: 0 auto;
@@ -35,7 +36,6 @@ main > .container {
   display: inline-block;
   overflow: hidden;
   border-radius: 50%;
-  background: #eee;
   width: 50px;
   height: 50px;
   text-align: center;
@@ -44,6 +44,7 @@ main > .container {
 }
 
 .backgrounds label {
+  background: #eee;
   line-height: 1.8 !important;
 }
 
@@ -57,6 +58,8 @@ main > .container {
 
 .lang a {
   line-height: 2.4;
+  background: white;
+  border: 1px solid #ccc;
 }
 
 .lang .active {
