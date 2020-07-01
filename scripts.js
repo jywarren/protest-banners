@@ -38,7 +38,8 @@ let slogans = {
 "POLICE,\nPROTECT\nTHE PEOPLE,\nNOT\nTHE STATE",
 "LOOK OUT:\nFREEDOM\nAT STAKE",
 "SILENCE\n=\nCOMPLICITY",
-"MY BANNER\nNEEDS\nNO APPROVAL"
+"MY BANNER\nNEEDS\nNO APPROVAL",
+"30 DAYS OF\nPOLITICAL\nIMPRISONMENT"
 ],
 
 "ru": [
@@ -53,7 +54,8 @@ let slogans = {
 "ПОЛИЦЕЙСКИЙ,\nЗАЩИЩАЙ НАРОД,\nА НЕ ВЛАСТЬ",
 "НЕ ЗАКРЫВАЙ\nГЛАЗА\n–\nНА КОНУ СВОБОДА",
 "МОЛЧАНИЕ\n=\nСОУЧАСТИЕ",
-"НЕ АКИМАТУ\nРЕШАТЬ, ЧТО МНЕ\nНА ПЛАКАТЕ\nПИСАТЬ"
+"НЕ АКИМАТУ\nРЕШАТЬ, ЧТО МНЕ\nНА ПЛАКАТЕ\nПИСАТЬ",
+"30 ДНЕЙ\nПОЛИТАРЕСТА"
 ],
 
 "kz": [
@@ -68,7 +70,8 @@ let slogans = {
 "ПОЛИЦИЯ,\nБИЛІКТІ ЕМЕС,\nХАЛЫҚТЫ\nҚОРҒА",
 "КӨЗІҢДІ АШ –\nБҰЛ\nБОСТАНДЫҚ\nМӘСЕЛЕСІ",
 "ҮНСІЗ БОЛУ\n=\nҚАТЫСУ",
-"ПЛАКАТ\nЖАЗУ –\nӨЗ ЕРКІМ"
+"ПЛАКАТ\nЖАЗУ –\nӨЗ ЕРКІМ",
+"30 КҮН\nСАЯСИ ҚАМАУ"
 ]};
 
 let lang = "ru";
